@@ -14,8 +14,8 @@ class InMemoryLoanRepository: LoanRepository {
         return loans.filter { it.user.id == user.id && it.isActive}
     }
 
-    override fun getActivesLoansByBook(book: Book): List<Loan>? {
-        return loans.filter { it.book.isbn == book.isbn && it.isActive }
+    override fun getActivesLoansByBook(book: Book): Loan? {
+        return loans.find { it.book.isbn == book.isbn && it.isActive }
     }
 
 }
